@@ -11,6 +11,7 @@
       type="text/css"
     />
     <link href="tron-favicon.ico" rel="icon" type="image/x-icon" />
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.core.min.js"></script>
     <script src="js/sounds.js"></script>
   </head>
@@ -28,6 +29,15 @@
         opponent. Navigate your light cycle by the arrow keys.
       </div>
       <h1 class="start-display" id="start">START</h1>
+      <div class="start-display" id="instructions" style="padding-top: 60px">
+        Have a <span style="color: #FF4500;">Frenemy</span>?
+      </div>
+      <h1 class="start-display" id="two-player">2 PLAYERS</h1>
+      <div class="start-display" id="instructions" style="font-size: 18px;">
+        (<span style="color: #FF4500">Player 2</span> uses WASD)
+      </div>
+      <h1 class="start-display" id="match">FIND OPPONENT</h1>
+      <input type="text" id="oppId" />
 
       <h1 class="end-display" id="you-win">You win!</h1>
       <h1 class="end-display" id="computer-win">Computer wins!</h1>
@@ -64,6 +74,24 @@
     <script src="./js/view.js"></script>
 
     <script>
+      var socket = io("http://localhost:3000");
+      socket.on("connect", function() {});
+      socket.on("event", function(data) {});
+      socket.on("disconnect", function() {});
+      socket.on("ingestPlay", function(coords) {
+        console.log(coords);
+      });
+      $("#match").on("click", function() {
+        let val = $("#oppId").val();
+        socket.emit("match request", { me: "hello", findOpp: val });
+      });
+
+      $("#replay").on("click", function() {
+        $(".end-display").hide();
+        var view = new View(rootEl, window.players);
+        view.startGame();
+      });
+
       $(".end-display").hide();
       var rootEl = $(".tron-game");
       var view;
@@ -85,12 +113,6 @@
         $(".score").show();
 
         window.players = 2;
-        var view = new View(rootEl, window.players);
-        view.startGame();
-      });
-
-      $("#replay").on("click", function() {
-        $(".end-display").hide();
         var view = new View(rootEl, window.players);
         view.startGame();
       });

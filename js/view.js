@@ -85,10 +85,11 @@ View.prototype.setupGrid = function() {
 };
 
 View.prototype.step = function() {
+  console.log("step");
   if (this.board.player1.alive && this.board.player2.alive) {
     this.board.player1.move();
     if (this.players === 2) {
-      this.board.player2.move();
+      // this.board.player2.move();
     } else {
       this.board.player2.computerMove();
     }
@@ -135,6 +136,7 @@ View.prototype.updateClasses = function(coords, className) {
     var coordIdx = coord.i * self.board.dimX + coord.j;
     self.$li.eq(coordIdx).addClass(className);
   });
+  socket.emit("gamePlay", coords);
 };
 
 View.prototype.checkWinner = function() {
