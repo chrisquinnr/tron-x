@@ -1,4 +1,10 @@
-html, body, figure, figcaption, ul, li, h1 {
+html,
+body,
+figure,
+figcaption,
+ul,
+li,
+h1 {
   margin: 0;
   padding: 0;
   border: 0;
@@ -12,7 +18,7 @@ ul {
 
 body {
   /*font-family: sans-serif;*/
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   text-align: center;
   font-weight: bold;
   color: white;
@@ -36,8 +42,9 @@ figure {
   min-height: 560px;
   max-width: 850px;
   max-height: 580px;
-  border: 10px solid blue;
+  border: 10px solid #00ccff;
   background: black;
+  z-index: 1;
 }
 
 li {
@@ -48,18 +55,17 @@ li {
 
 .player {
   background: #00ccff;
-  filter: drop-shadow(0 0 8px #00ccff);
+  filter: drop-shadow(0 0 1px #00ccff);
 }
 
-
 .player2 {
-  background: #FF4500;
-  filter: drop-shadow(0 0 8px #FF4500);
+  background: orange;
+  filter: drop-shadow(0 0 1px orange);
 }
 
 h1 {
   color: white;
-  font-family: 'Audiowide', cursive;
+  font-family: "Audiowide", cursive;
   /*font-family: 'Orbitron', sans-serif;*/
   font-size: 30px;
 }
@@ -81,8 +87,10 @@ h1 {
   padding-top: 100px;
 }
 
-#start, #replay, #two-player {
-  border: 4px solid red;
+#start,
+#replay,
+#two-player {
+  border: 4px solid orange;
   border-radius: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -93,7 +101,10 @@ h1 {
   margin-bottom: 8px;
 }
 
-#computer-win, #you-win, #player1-win, #player2-win {
+#computer-win,
+#you-win,
+#player1-win,
+#player2-win {
   padding-bottom: 30px;
   font-size: 40px;
 }
@@ -102,7 +113,7 @@ h1 {
   padding-bottom: 34px;
   width: 675px;
   font-size: 22px;
-  font-family: 'Audiowide', cursive;
+  font-family: "Audiowide", cursive;
 }
 
 h1#instructions {
@@ -127,8 +138,9 @@ h1#instructions {
   margin-left: 10px;
 }
 
-.medium, .hard {
-  border: 4px solid red;
+#medium,
+#hard {
+  border: 4px solid #04a1c9;
   border-radius: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -139,9 +151,9 @@ h1#instructions {
   margin-bottom: 12px;
 }
 
-.easy {
-  color: red;
-  border: 4px solid red;
+#easy {
+  color: orange;
+  border: 4px solid #04a1c9;
   border-radius: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -159,19 +171,19 @@ h1#instructions {
 
 .score {
   font-size: 26px;
-  margin-bottom: 60px
+  margin-bottom: 60px;
 }
 
 .blue-wins {
   font-size: 26px;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   color: blue;
   margin-right: 10px;
 }
 
 .red-wins {
   font-size: 26px;
-  font-family: 'Orbitron', sans-serif;
-  color: #FF4500;
+  font-family: "Orbitron", sans-serif;
+  color: orange;
   margin-left: 10px;
 }
